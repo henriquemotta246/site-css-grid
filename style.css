@@ -1,25 +1,117 @@
-/* Noco jeito de configurar todas as corres que eu quero */
+/* Configuração de Cores e Variáveis - Azul, Roxo e Prata */
 :root {
-    --bg-main: #0f172a;        /* Fundo escuro azulado */
-    --bg-card: #1e293b;        /* Fundo dos cartões */
-    --accent-vibrant: #78e420; /* Verde Lima vibrante */
-    --accent-blue: #38bdf8;    /* Azul elétrico */
+    --bg-main: #0d1117;        /* Fundo escuro azulado */
+    --bg-card: #161b22;        /* Fundo dos cartões em tom grafite escuro */
+    --accent-vibrant: #8b5cf6; /* Roxo vibrante */
+    --accent-blue: #38bdf8;    /* Azul elétrico brilhante */
+    --accent-silver: #e2e8f0;  /* Prata / Branco claro */
     --text-light: #f8fafc;     /* Texto claro */
-    --text-muted: #94a3b8;     /* Texto secundário */
-    --border-color: #334155;   /* Bordas discretas */
-    --radius: 10px;            /* Arredondamento suave */
+    --text-muted: #94a3b8;     /* Texto secundário em cinza prateado */
+    --border-color: #334155;   /* Bordas discretas em tom azulado */
+    --radius: 8px;             /* Arredondamento dos elementos */
 }
 
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--bg-main);
     color: var(--text-light);
 }
 
-/* Container Principal com Grid */
+/* ESTILOS DA CAPA (index.html) */
+.capa-body {
+    background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+.capa-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(13, 17, 23, 0.85), rgba(30, 27, 75, 0.85));
+    z-index: 1;
+}
+
+.capa-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background-color: var(--bg-card);
+    border: 2px solid var(--accent-vibrant);
+    padding: 35px 25px;
+    border-radius: var(--radius);
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.25);
+}
+
+.symbol {
+    font-size: 55px;
+    color: var(--accent-blue);
+    margin-bottom: 5px;
+}
+
+.logo-title {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: var(--accent-silver);
+    text-transform: uppercase;
+}
+
+.logo-subtitle {
+    margin: 5px 0 0 0;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--accent-blue);
+}
+
+.divider-gold {
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-vibrant));
+    margin: 20px 0;
+}
+
+.slogan {
+    font-size: 15px;
+    color: var(--accent-silver);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.descricao-capa {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+/* BOTÃO DA CAPA COM MOVIMENTO */
+.btn-entrar {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(90deg, var(--accent-vibrant), var(--accent-blue));
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-entrar:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+}
+
+/* CONTAINER PRINCIPAL COM CSS GRID (pagina2.html) */
 .container {
     display: grid;
     grid-template-columns: 200px 1fr 250px;
@@ -30,12 +122,12 @@ body, html {
     box-sizing: border-box;
 }
 
-/*  Cabeçalho */
+/* Cabeçalho */
 header {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
-    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)),
-                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80') center/cover;
+    background: linear-gradient(135deg, rgba(13, 17, 23, 0.9), rgba(49, 46, 129, 0.85)),
+                url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80') center/cover;
     color: #ffffff;
     padding: 15px;
     text-align: center;
@@ -50,13 +142,13 @@ header h1 {
     margin: 0;
     font-size: 24px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--accent-silver);
 }
 
 header p {
     margin: 5px 0 0 0;
-    font-size: 14px;
-    color: var(--accent-vibrant);
+    font-size: 13px;
+    color: var(--accent-blue);
     font-weight: bold;
 }
 
@@ -73,25 +165,28 @@ aside {
     gap: 10px;
 }
 
+/* BOTÕES DO MENU COM MOVIMENTO */
 aside button {
     width: 100%;
-    background-color: #0f172a;
+    background-color: var(--bg-main);
     color: var(--text-light);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease-in-out;
 }
 
 aside button:hover, aside button.active {
-    background-color: var(--accent-vibrant);
-    color: #000000;
-    border-color: var(--accent-vibrant);
+    background: linear-gradient(90deg, var(--accent-vibrant), var(--accent-blue));
+    color: #ffffff;
+    border-color: transparent;
+    transform: translateX(4px);
+    box-shadow: 2px 2px 10px rgba(139, 92, 246, 0.3);
 }
 
-/*  Conteúdo Principal */
+/* Conteúdo Principal */
 main {
     grid-column: 2 / 3;
     grid-row: 2 / 4;
@@ -99,6 +194,9 @@ main {
     padding: 20px;
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 main h2 {
@@ -113,7 +211,27 @@ main p {
     color: var(--text-muted);
 }
 
-/* Anúncios */
+/* IMAGENS CENTRALIZADAS */
+.main-imagens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* IMAGENS CENTRALIZADAS E INTEIRAS (SEM CORTAR) */
+.main-imagens img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover; /* Mostra a imagem inteira sem cortar */
+    object-position: center; /* Mantém centralizada */
+    background-color: var(--bg-main); /* Fundo escuro para preencher eventuais sobras */
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+
+}
+
+/* Anúncios / Diferenciais */
 .anuncios {
     grid-column: 3 / 4;
     grid-row: 2 / 4;
@@ -127,19 +245,19 @@ main p {
 }
 
 .caixa-anuncio {
-    background-color: #0f172a;
+    background-color: var(--bg-main);
     padding: 10px;
     font-size: 12px;
     color: var(--text-light);
     border: 1px solid var(--border-color);
-    border-left: 4px solid var(--accent-blue);
+    border-left: 4px solid var(--accent-vibrant);
     border-radius: 6px;
     display: grid;
     align-content: center;
 }
 
 .caixa-anuncio.destaque {
-    border-left-color: var(--accent-vibrant);
+    border-left-color: var(--accent-blue);
 }
 
 /* Inscrições e Formulário */
@@ -154,8 +272,8 @@ main p {
 
 .formulario h3 {
     margin: 0 0 10px 0;
-    font-size: 16px;
-    color: var(--text-light);
+    font-size: 15px;
+    color: var(--accent-blue);
 }
 
 .formulario form {
@@ -167,31 +285,34 @@ main p {
 .formulario input {
     padding: 8px 12px;
     border: 1px solid var(--border-color);
-    background-color: #0f172a;
+    background-color: var(--bg-main);
     color: #ffffff;
     border-radius: 6px;
     outline: none;
 }
 
 .formulario input:focus {
-    border-color: var(--accent-vibrant);
+    border-color: var(--accent-blue);
 }
 
+/* BOTÃO FORMULÁRIO COM MOVIMENTO */
 .formulario button {
     background-color: var(--accent-vibrant);
-    color: #000000;
+    color: #ffffff;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .formulario button:hover {
-    background-color: #a3e635;
+    background-color: var(--accent-blue);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
 
-/* Galeria */
+/* Galeria com Imagens Centralizadas */
 .galeria {
     grid-column: 3 / 4;
     grid-row: 4 / 5;
@@ -214,13 +335,14 @@ main p {
     align-content: flex-end;
     padding: 4px;
     overflow: hidden;
+    border: 1px solid var(--border-color);
 }
 
 .foto::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    background: linear-gradient(transparent, rgba(13, 17, 23, 0.9));
 }
 
 .foto span {
@@ -228,17 +350,17 @@ main p {
     z-index: 1;
     font-size: 10px;
     font-weight: bold;
-    color: #ffffff;
+    color: var(--accent-blue);
     text-align: center;
 }
 
-/* Imagens das Caixas de Fotos */
-.foto-1 { background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=300&q=80'); }
-.foto-2 { background-image: url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=300&q=80'); }
-.foto-3 { background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=300&q=80'); }
-.foto-4 { background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=300&q=80'); }
-.foto-5 { background-image: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=300&q=80'); }
-.foto-6 { background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=300&q=80'); }
+/* Imagens da Galeria */
+.foto-1 { background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=300&q=80'); }
+.foto-2 { background-image: url('https://images.unsplash.com/photo-1555374018-13a8994ab246?auto=format&fit=crop&w=300&q=80'); }
+.foto-3 { background-image: url('https://images.unsplash.com/photo-1593113598332-cd59a93c6138?auto=format&fit=crop&w=300&q=80'); }
+.foto-4 { background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=300&q=80'); }
+.foto-5 { background-image: url('https://images.unsplash.com/photo-1528747008803-1f37f2f3bb57?auto=format&fit=crop&w=300&q=80'); }
+.foto-6 { background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=300&q=80'); }
 
 /* Rodapé */
 footer {
