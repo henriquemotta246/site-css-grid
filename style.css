@@ -222,7 +222,7 @@ main p {
 /* IMAGENS CENTRALIZADAS E INTEIRAS (SEM CORTAR) */
 .main-imagens img {
     width: 100%;
-    height: 120px;
+    height: 300px;
     object-fit: cover; /* Mostra a imagem inteira sem cortar */
     object-position: center; /* Mantém centralizada */
     background-color: var(--bg-main); /* Fundo escuro para preencher eventuais sobras */
