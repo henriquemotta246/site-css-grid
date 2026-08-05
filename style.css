@@ -224,7 +224,7 @@ main p {
     width: 100%;
     height: 300px;
     object-fit: cover; /* Mostra a imagem inteira sem cortar */
-    object-position: center; /* Mantém centralizada */
+    object-position: 85% 15%; /* Mantém centralizada */
     background-color: var(--bg-main); /* Fundo escuro para preencher eventuais sobras */
     border-radius: 6px;
     border: 1px solid var(--border-color);
